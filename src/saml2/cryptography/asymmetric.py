@@ -1,15 +1,13 @@
 """This module provides methods for asymmetric cryptography."""
 
-import cryptography.hazmat.backends as _backends
 import cryptography.hazmat.primitives.asymmetric as _asymmetric
 import cryptography.hazmat.primitives.hashes as _hashes
 import cryptography.hazmat.primitives.serialization as _serialization
 
 
-def load_pem_private_key(data, password):
+def load_pem_private_key(data, password=None):
     """Load RSA PEM certificate."""
-    key = _serialization.load_pem_private_key(
-        data, password, _backends.default_backend())
+    key = _serialization.load_pem_private_key(data, password)
     return key
 
 
@@ -28,7 +26,7 @@ def key_verify(rsakey, signature, message, digest):
 
     try:
         rsakey.verify(signature, message, padding, digest)
-    except Exception as e:
+    except Exception:
         return False
     else:
         return True

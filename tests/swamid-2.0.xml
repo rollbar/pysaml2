@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 
-      This file was automatically generated - do not edit 
+      This file was automatically generated - do not edit
 
     -->
-<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" Name="http://md.swamid.se/md/swamid-2.0.xml" cacheDuration="PT8H" validUntil="2999-12-13T10:05:05Z"><ds:Signature><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>wdokYz5tEa8aCh+fEPqytS/y9W8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Wsr/+VrII3wK5rAzQKmjSzflCIuIhQboSc6sIxQwWw3toALPfY5fBl1XHPKGFXxY
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" Name="http://md.swamid.se/md/swamid-2.0.xml" cacheDuration="PT8H" validUntil="2036-12-13T10:05:05Z"><ds:Signature><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>wdokYz5tEa8aCh+fEPqytS/y9W8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Wsr/+VrII3wK5rAzQKmjSzflCIuIhQboSc6sIxQwWw3toALPfY5fBl1XHPKGFXxY
 t6W7MxPjU1FKh4PdISeTgqYUwvrX2YDE7HxoYAZR5n5cZlogBZIR3dUwXAcJ75pX
 tDUHpoqNyEJgoaeTiFhNBrfwGPlWNb0RstfM+iMIpdNTlSFHvuHMxkJSEunjzbcj
 7OU8KcYSlosw4wqdI/G50aQAjSJf+M1wARHtbPvH9ULeks5AUhKyJYztrPJc1UJL

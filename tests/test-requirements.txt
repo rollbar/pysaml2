@@ -1,7 +1,0 @@
-coverage
-mock
-pyasn1
-pymongo
-pytest
-pytest-cov
-responses

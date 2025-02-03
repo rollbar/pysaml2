@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 import os.path
 
-from saml2 import BINDING_HTTP_REDIRECT, BINDING_URI
 from saml2 import BINDING_HTTP_ARTIFACT
 from saml2 import BINDING_HTTP_POST
+from saml2 import BINDING_HTTP_REDIRECT
 from saml2 import BINDING_SOAP
+from saml2 import BINDING_URI
 from saml2.saml import NAME_FORMAT_URI
-from saml2.saml import NAMEID_FORMAT_TRANSIENT
 from saml2.saml import NAMEID_FORMAT_PERSISTENT
+from saml2.saml import NAMEID_FORMAT_TRANSIENT
+
 
 try:
     from saml2.sigver import get_xmlsec_binary
@@ -49,7 +51,7 @@ DIGEST_ALG = None
 CONFIG = {
     "entityid": "%s/idp.xml" % BASE,
     "description": "My IDP",
-    "valid_for": 168,
+    #"valid_for": 168,
     "service": {
         "aa": {
             "endpoints": {
@@ -102,7 +104,7 @@ CONFIG = {
                     "lifetime": {"minutes": 15},
                     "attribute_restrictions": None, # means all I have
                     "name_form": NAME_FORMAT_URI,
-                    "entity_categories": ["swamid", "edugain"]
+                    #"entity_categories": ["swamid", "edugain"]
                 },
             },
             "subject_data": "./idp.subject",
@@ -137,14 +139,33 @@ CONFIG = {
     # the identifier returned to a SP
     "xmlsec_binary": xmlsec_path,
     #"attribute_map_dir": "../attributemaps",
-    "logger": {
-        "rotating": {
-            "filename": "idp.log",
-            "maxBytes": 500000,
-            "backupCount": 5,
+    "logging": {
+        "version": 1,
+        "formatters": {
+            "simple": {
+                "format": "[%(asctime)s] [%(levelname)s] [%(name)s.%(funcName)s] %(message)s",
+            },
         },
-        "loglevel": "debug",
-    }
+        "handlers": {
+            "stderr": {
+                "class": "logging.StreamHandler",
+                "stream": "ext://sys.stderr",
+                "level": "DEBUG",
+                "formatter": "simple",
+            },
+        },
+        "loggers": {
+            "saml2": {
+                "level": "DEBUG"
+            },
+        },
+        "root": {
+            "level": "DEBUG",
+            "handlers": [
+                "stderr",
+            ],
+        },
+    },
 }
 
 # Authentication contexts

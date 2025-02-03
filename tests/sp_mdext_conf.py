@@ -1,16 +1,31 @@
-from pathutils import full_path, xmlsec_path
+from pathutils import full_path
+from pathutils import xmlsec_path
+
 
 CONFIG = {
     "entityid": "urn:mace:example.com:saml:roland:sp",
     "name": "urn:mace:example.com:saml:roland:sp",
+    "entity_attributes": [
+        {
+            "name_format": "urn:oasis:names:tc:SAML:2.0:attrname-format:uri",
+            "name": "urn:oasis:names:tc:SAML:profiles:subject-id:req",
+            # "friendly_name" is not set
+            "values": ["any"],
+        },
+        {
+            "name": "somename",
+            "friendly_name": "somefriendlyname",
+            "name_format": "format",
+            "values": ["x", "y", "z"],
+        },
+    ],
     "description": "My own SP",
     "service": {
         "sp": {
             "sp_type": "public",
             "sp_type_in_metadata": True,
             "endpoints": {
-                "assertion_consumer_service": [
-                    "http://lingon.catalogix.se:8087/"],
+                "assertion_consumer_service": ["http://lingon.catalogix.se:8087/"],
             },
             "required_attributes": ["surName", "givenName", "mail"],
             "optional_attributes": ["title"],
@@ -19,22 +34,18 @@ CONFIG = {
                 "mdui": {
                     "UIInfo": {
                         "display_name": {"text": "NORDUnet", "lang": "en"},
-                        "description": {
-                            "text": "The NORDUnet A/S Identity Provider ..",
-                            "lang": "en"},
+                        "description": {"text": "The NORDUnet A/S Identity Provider ..", "lang": "en"},
                         "logo": {
-                            "text": "https://www.nordu"
-                                    ".net/resources/NORDUnet2.jpg",
-                            "lang": "en", "height": 46, "width": 203}
+                            "text": "https://www.nordu" ".net/resources/NORDUnet2.jpg",
+                            "lang": "en",
+                            "height": 46,
+                            "width": 203,
+                        },
                     },
-                    "DiscoHints": {
-                        "domain_hint": {"text": "nordu.net"}
-                    }
+                    "DiscoHints": {"domain_hint": {"text": "nordu.net"}},
                 },
-                "shibmd": {
-                    "Scope": {"regexp": "false", "text": "nordu.net"}
-                },
-            }
+                "shibmd": {"Scope": {"regexp": "false", "text": "nordu.net"}},
+            },
         }
     },
     "debug": 1,
@@ -64,7 +75,7 @@ CONFIG = {
             "sur_name": "Hedberg",
             "telephone_number": "+46 70 100 0000",
             "email_address": ["tech@eample.com", "tech@example.org"],
-            "contact_type": "technical"
+            "contact_type": "technical",
         },
     ],
     "secret": "0123456789",

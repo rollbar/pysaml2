@@ -1,16 +1,15 @@
 import logging
 
-import six
-
 from saml2.cache import Cache
+
 
 logger = logging.getLogger(__name__)
 
 
-class Population(object):
+class Population:
     def __init__(self, cache=None):
         if cache:
-            if isinstance(cache, six.string_types):
+            if isinstance(cache, str):
                 self.cache = Cache(cache)
             else:
                 self.cache = cache
@@ -24,8 +23,7 @@ class Population(object):
         session_info = dict(session_info)
         name_id = session_info["name_id"]
         issuer = session_info.pop("issuer")
-        self.cache.set(name_id, issuer, session_info,
-                       session_info["not_on_or_after"])
+        self.cache.set(name_id, issuer, session_info, session_info["not_on_or_after"])
         return name_id
 
     def stale_sources_for_person(self, name_id, sources=None):
@@ -35,8 +33,9 @@ class Population(object):
         :param sources: Sources for information about the subject
         :return:
         """
-        if not sources:  # assume that all the members has be asked
-                         # once before, hence they are represented in the cache
+        if not sources:
+            # assume that all the members has be asked
+            # once before, hence they are represented in the cache
             sources = self.cache.entities(name_id)
         sources = [m for m in sources if not self.cache.active(name_id, m)]
         return sources
@@ -59,8 +58,7 @@ class Population(object):
 
     def get_entityid(self, name_id, source_id, check_not_on_or_after=True):
         try:
-            return self.cache.get(name_id, source_id, check_not_on_or_after)[
-                "name_id"]
+            return self.cache.get(name_id, source_id, check_not_on_or_after)["name_id"]
         except (KeyError, ValueError):
             return ""
 
